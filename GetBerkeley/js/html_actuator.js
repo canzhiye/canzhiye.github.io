@@ -156,7 +156,7 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   tweet.setAttribute("data-via", "gabrielecirulli");
   tweet.textContent = "Tweet";
 
-  var text = "Are you capable of reaching Caltech levels? #GetCaltech";
+  var text = "Berkeley for the win #GetBerkeley";
   tweet.setAttribute("data-text", text);
 
   return tweet;
