@@ -156,7 +156,7 @@ HTMLActuator.prototype.scoreTweetButton = function () {
   tweet.setAttribute("data-via", "gabrielecirulli");
   tweet.textContent = "Tweet";
 
-  var text = "Yale for the win #GetYale";
+  var text = "Yale for the win #Yale2018";
   tweet.setAttribute("data-text", text);
 
   return tweet;
