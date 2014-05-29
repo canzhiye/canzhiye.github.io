@@ -13,6 +13,7 @@ $message = $client->account->messages->create(
     "210-452-6889", // To this number
     "fuck you bitch!"
 );
- 
+
 // Display a confirmation message on the screen
 echo "Sent message {$message->sid}";
+?>
