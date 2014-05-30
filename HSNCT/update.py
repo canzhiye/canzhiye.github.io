@@ -1,18 +1,21 @@
-<?php
+import os
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hello():
+    return 'Hello World!'
+
+# Download the Python helper library from twilio.com/docs/python/install
+from twilio.rest import TwilioRestClient
  
-require "/path/to/twilio-php/Services/Twilio.php";
+# Your Account Sid and Auth Token from twilio.com/user/account
+account_sid = "AC67e8c7be7a1ada92885b86e4f505eef6"
+auth_token  = "3bca0413f1e68a8ca6897d9ff8dd3dee"
+client = TwilioRestClient(account_sid, auth_token)
  
-// set your AccountSid and AuthToken from www.twilio.com/user/account
-$AccountSid = "ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-$AuthToken = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY";
- 
-$client = new Services_Twilio($AccountSid, $AuthToken);
- 
-$message = $client->account->messages->create(
-    "734-259-2717", // From this number
-    "210-452-6889", // To this number
-    "Test message!"
-);
- 
-// Display a confirmation message on the screen
-echo "Sent message {$message->sid}";
+sms = client.sms.messages.create(body="fuck you bitch",
+    to="+12104526889",
+    from_="+17342592717")
+print sms.sid
