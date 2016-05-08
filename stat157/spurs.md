@@ -4,12 +4,11 @@ Canzhi Ye, Shashank Bhargava
 
 ## Introduction
 ---
-Every year, the teams in the NBA draft amateur players with the hope that they will become future star players. The NBA Draft consists of two rounds, where the teams are roughly ordered in ascending order by the number of games they won the previous season. 
+Nothing defines the success of a team in the NBA quite like the NBA draft; the draft represents the one time a year where a team is solely responsible for the talent that comes their way. Other options of talent acquisition, like trades and free agency, depend on external conditions: location, salary cap, relationships between players, the list goes on. However, the draft is what separates the great teams from the pack, and allows for sustained success beyond just one generation of players is consistent and successful drafting.
 
+The NBA draft occurs once a year, in June. By default, each team gets one draft pick in each of the two rounds, and the order is determined essentially by ranking the teams from worst to best. 
 
-Over the years, many widely held assumptions have formed around the draft. These adages are often repeated by the media as the draft approaches. This project will take a closer statistical look at these adages and try to conclude if they are legitimate or merely myth.
-
-
+Every year, the draft is met with much fanfare, as teams try to project the future careers of teenagers. To properly categorize these players, a lot of pundits rely on commonly held adages to describe how players project. A lot of these adages remain in the public eye, even after it seems like they make no sense. For example, many people are under the impression that skinnier big men lack the ability to play inside and properly post up. While this fact can be debated, the game of basketball has gone through a transition such that these skills no longer seem as important as they once did. The emergence of the stretch 4, a power forward who plays on the outside and is able to stretch the court by shooting instead of necessarily posting up, has made it seem like this adage might no longer have a place in the modern day NBA. Thus, our project has a very simple goal: look through these adages that present themselves and see if advanced metrics show whether they hold or not.
 
 More specifically, here are the adages we explored:
 
@@ -19,11 +18,8 @@ More specifically, here are the adages we explored:
 
 ## Data
 ---
-We collected data from two main sources.
-
-1) We downloaded all draft data from Basketball Reference from the years 1990-2015. This includes pick, round, year, team data, and career performance statistics like games played, minutes played, points, rebounds, assists, blocks, steals, turnovers, win shares, and value over replacement player. 
-
-2) stats.nba.com has a wealth of NBA Combine measurements. Akin to the NFL Combine, the NBA's counterpart is also attended by many scouts. A player's anthropometric data is at the core of some of these draft adages. 
+The data for this experiment was collected from two main sources: draft data and season data collected from Basketball Reference and NBA combine data collected from the official NBA website. The draft data includes how a player performed throughout their career, while the NBA combine data includes measurable data such as height, weight, body fat percentage, wingspan, and standing reach. 
+Our analysis was done using iPython, numpy and the UC Berkeley data science library. Plots were made with matplotlib and using the FiveThirtyEight style guide for graphing. These technologies allow us to be able to analyze the data relatively easily and visualize it in a way that allows for easy interpretation. 
 
 
 ## Draft Adage \#1
