@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-06T13:42:15-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">untitled</title><subtitle>a mix of basketball, tech, and other things that cross my mind</subtitle><entry><title type="html">Exploring NBA Player Positions with Matchup Data</title><link href="http://localhost:4000/matchups" rel="alternate" type="text/html" title="Exploring NBA Player Positions with Matchup Data" /><published>2018-12-16T00:00:00-08:00</published><updated>2018-12-16T00:00:00-08:00</updated><id>http://localhost:4000/matchups</id><content type="html" xml:base="http://localhost:4000/matchups">&lt;iframe width=&quot;900&quot; height=&quot;800&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//plot.ly/~canzhiye/20.embed&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;using the matchup data on the nba stats site, I created a graph with nodes being players and edges weighted by how much players guarded each other. I ran &lt;a href=&quot;https://en.wikipedia.org/wiki/Louvain_Modularity&quot;&gt;louvain community detection algorithm&lt;/a&gt; on it and it found 4 communities. this means there’s “naturally” 4 positions!&lt;/p&gt;
+
+&lt;p&gt;this isn’t a particularly surprising insight at all. it’s cool to see it borne out in the data though!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/divyahansg/status/1073874951055110144&quot;&gt;shoutout&lt;/a&gt; to divyahans for the idea.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;iframe width=&quot;900&quot; height=&quot;800&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//plot.ly/~canzhiye/14.embed&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;in this second visualization, I took the matchup graph and ran &lt;a href=&quot;https://snap.stanford.edu/node2vec/&quot;&gt;node2vec&lt;/a&gt; on it. this embeds the nodes of the graph in high-dimensional space. presumably, players of the same position will be “close” to each other in this high dimensional space. I then used t-SNE to reduce the dimensionality so that it’s suitable for viewing.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;please tweet / dm me &lt;a href=&quot;https://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt; any suggestions or questions!&lt;/p&gt;
+
+&lt;p&gt;disclaimer: I know the matchup data itself is not great and it’s not totally clear what constitutes a “matchup” between two players. A little discussion on that &lt;a href=&quot;https://twitter.com/Squared2020/status/1074006259307765760&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Daily-Updating RAPM</title><link href="http://localhost:4000/rapm" rel="alternate" type="text/html" title="Daily-Updating RAPM" /><published>2018-12-05T00:00:00-08:00</published><updated>2018-12-05T00:00:00-08:00</updated><id>http://localhost:4000/rapm</id><content type="html" xml:base="http://localhost:4000/rapm">&lt;p&gt;trailing 250 and 500 day (excluding offseason) regular season RAPM. updated nightly.&lt;/p&gt;
+
+&lt;p&gt;(this is a really early version right now. would love suggestions.)&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.google.com/search?q=rapm+nba+explanation&amp;amp;oq=rapm+nba+explanation&quot;&gt;what is rapm?&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;why 250 and 500 day samples?  &lt;br /&gt;
+there is a ton of noise in RAPM for small samples. the single-season RAPM numbers that are floating out there suffer from this. 250 game days is about 1.5 seasons, and 500 game days is about 3 seasons.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;iframe class=&quot;airtable-embed&quot; src=&quot;https://airtable.com/embed/shrtSySuCWRS6qJLR?backgroundColor=blue&quot; frameborder=&quot;0&quot; onmousewheel=&quot;&quot; width=&quot;100%&quot; height=&quot;533&quot; style=&quot;background: transparent; border: 1px solid #ccc;&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+&lt;p&gt;a few technical details:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;ridge regression (use cross-validation to find “best” regularization parameter)&lt;/li&gt;
+  &lt;li&gt;some possessions played cutoff that regresses about 1/5th of the players toward a ~replacement level~ player&lt;/li&gt;
+  &lt;li&gt;please tweet / dm me &lt;a href=&quot;https://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt; any suggestions or questions&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">trailing 250 and 500 day (excluding offseason) regular season RAPM. updated nightly.</summary></entry><entry><title type="html">Sneak Peek: Pose Estimation on Basketball Broadcast Video</title><link href="http://localhost:4000/2018/07/21/computer-vision-bball.html" rel="alternate" type="text/html" title="Sneak Peek: Pose Estimation on Basketball Broadcast Video" /><published>2018-07-21T00:00:00-07:00</published><updated>2018-07-21T00:00:00-07:00</updated><id>http://localhost:4000/2018/07/21/computer-vision-bball</id><content type="html" xml:base="http://localhost:4000/2018/07/21/computer-vision-bball.html">&lt;p&gt;I’m thinking about how to apply computer vision to basketball in order to quantify things that are not currently or see the game in a different way.&lt;/p&gt;
+
+&lt;p&gt;This post merely includes some early thoughts and miniscule prototypes.&lt;/p&gt;
+
+&lt;p&gt;I used Facebook Research’s DensePose. It was kind of a pain to install, so I wrote a little &lt;a href=&quot;https://gist.github.com/canzhiye/af55bde2a0437c5e46997bb969024676&quot;&gt;gist&lt;/a&gt; for it if you’re interested in tinkering yourself. It might not ultimately be the right tool though.&lt;/p&gt;
+
+&lt;p&gt;I didn’t pre-process the videos at all. The court and crowd definitely needs to be segmented out. &lt;a href=&quot;https://twitter.com/canzhiye/status/1012390885298864130&quot;&gt;Here’s&lt;/a&gt; what it looks like without that.&lt;/p&gt;
+
+&lt;p&gt;This isn’t NBA specific. Here I pulled a Euroleague clip. Also, I thought it might be interesting to turn the players into just a single-colored silhouette. Can that remove some bias in scouting? Can you guess who’s shooting in &lt;a href=&quot;https://twitter.com/canzhiye/status/1020688241643671556&quot;&gt;this clip&lt;/a&gt;?&lt;/p&gt;
+
+&lt;p&gt;This is very much a work in progress. Would love to hear any ideas or feedback!&lt;/p&gt;</content><author><name></name></author><summary type="html">I’m thinking about how to apply computer vision to basketball in order to quantify things that are not currently or see the game in a different way.</summary></entry></feed>
