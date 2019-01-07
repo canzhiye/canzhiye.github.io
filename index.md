@@ -6,7 +6,7 @@ layout: home
 list_title: Posts
 ---
 
-Hey, Canzhi here. This is a space for me to explore and share some ideas in a slightly more long-form way than tweeting. I anticipate the content will be a mix of basketball (analytics), tech, and really anything that crosses my mind.
-
-![lil-something](/assets/img/mondrian.jpg){:id="mondrian"}
-
+Hey, Canzhi here. This is a space for me to explore and share some ideas in a slightly more long-form way than tweeting. I anticipate the content will be a mix of basketball (analytics), tech, and really anything that crosses my mind.  
+<br><br>
+![lil-something](/assets/img/mondrian.jpg){:id="mondrian"}  
+<br><br>
