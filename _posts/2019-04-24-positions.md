@@ -9,11 +9,6 @@ Players are traditionally assigned discrete position labels (PG, SG, SF, PF, C).
 
 This post takes a different approach in exploring player positions. Instead of assigning discrete labels, I put players' positions on a continuous spectrum instead. There are some neat things you can do with these more granular player positions! For example, given any 5 players, you can objectively sort them from "small" to "big" trivially. Another example: you can quantify the "size" of each lineup by adding all the player position values. I'm sure there are many other things you can do that I haven't thought of.
 
-Methodology to follow.
-### Results
-
-<iframe class="airtable-embed" src="https://airtable.com/embed/shraD7HhIiCZaEMsq?backgroundColor=purple&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="480" style="background: transparent; border: 1px solid #ccc; margin-bottom: 20px"></iframe>
-
 ### Methodology
 
 Using 2018-19 matchup data (who guards who and for how many possessions) from [stats.nba.com](http://stats.nba.com), I constructed two [directed graphs](https://en.wikipedia.org/wiki/Directed_graph) where nodes are players and edge weights are normalized number of possessions. In the offense graph, there are directed edges from offensive players to defensive players, weighted by the number of possessions of that matchup. The defense graph is the opposite. 
@@ -22,6 +17,10 @@ Using 2018-19 matchup data (who guards who and for how many possessions) from [s
 Then I used a [community detection algorithm](https://perso.uclouvain.be/vincent.blondel/research/louvain.html) on the graphs to partitions the nodes (players) into communities. The basketball interpretation of a community is a position. More specifically, players in the same community in the offense graph are guarded by similar players, and similarly players in the same communitiy in the defense graph guard similar players. I visually inspected the communities and assigned them integers -- the Lead Guard (PG) group as 0, the Wing (SG/SF) group as 1, Big Wing (SF/PF) group as 2, and Big (C) group as 3. 
 
 On the offense and defense graphs, I ran [node2vec](https://snap.stanford.edu/node2vec/) to embed each node into an n-dimensional space (I arbitrarily chose n=16). Now each player has an n-dimensional representation and a 1-dimensional label in [0, 1, 2, 3]. Then I used a gradient boosted regressor (could really use any model here) to predict the 1-dimensional label from the n-dimensional representation. The result is a decimal "position" value for each player, where the "smaller" players have lower values, and "bigger" players have higher values.
+
+### Results
+
+<iframe class="airtable-embed" src="https://airtable.com/embed/shraD7HhIiCZaEMsq?backgroundColor=purple&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="480" style="background: transparent; border: 1px solid #ccc; margin-bottom: 20px"></iframe>
 
 ### Fun observations...
 First, let's sanity-check the results with eye-test / our basketball knowledge. Not surprisingly, Dinwiddie, Ntilikina, Derek White, and Beverley are guards with above average values amongst guards. Compared to the likes of Burke, Sexton, Collison, Schroder, Kemba, the former group is more versatile and more likely to guard a player at a bigger position. The bigs with the largest position values are Embiid, Ibaka, Tristan Thompson. The smallest bigs include Markieff Morris, Faried, Amir Johnson, and Jonah Bolden -- players who often play alongside another big.
