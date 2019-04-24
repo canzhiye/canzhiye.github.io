@@ -3,19 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Exploring NBA Player Positions with Matchup Data | untitled</title>
+<title>Daily-Updating RAPM | untitled</title>
 <meta name="generator" content="Jekyll v3.7.4" />
-<meta property="og:title" content="Exploring NBA Player Positions with Matchup Data" />
+<meta property="og:title" content="Daily-Updating RAPM" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="a mix of basketball, tech, and other things that cross my mind" />
-<meta property="og:description" content="a mix of basketball, tech, and other things that cross my mind" />
-<link rel="canonical" href="http://localhost:4000/matchups" />
-<meta property="og:url" content="http://localhost:4000/matchups" />
+<meta name="description" content="The table below shows trailing 250 and 500 day (excluding offseason) regular season RAPM. Updated nightly." />
+<meta property="og:description" content="The table below shows trailing 250 and 500 day (excluding offseason) regular season RAPM. Updated nightly." />
+<link rel="canonical" href="http://localhost:4000/rapm/" />
+<meta property="og:url" content="http://localhost:4000/rapm/" />
 <meta property="og:site_name" content="untitled" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-12-16T00:00:00-08:00" />
+<meta property="article:published_time" content="2018-12-05T00:00:00-08:00" />
 <script type="application/ld+json">
-{"description":"a mix of basketball, tech, and other things that cross my mind","@type":"BlogPosting","url":"http://localhost:4000/matchups","headline":"Exploring NBA Player Positions with Matchup Data","dateModified":"2018-12-16T00:00:00-08:00","datePublished":"2018-12-16T00:00:00-08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/matchups"},"@context":"http://schema.org"}</script>
+{"description":"The table below shows trailing 250 and 500 day (excluding offseason) regular season RAPM. Updated nightly.","@type":"BlogPosting","url":"http://localhost:4000/rapm/","headline":"Daily-Updating RAPM","dateModified":"2018-12-05T00:00:00-08:00","datePublished":"2018-12-05T00:00:00-08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/rapm/"},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="untitled" /></head>
 <body><header class="site-header">
@@ -37,32 +37,39 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Exploring NBA Player Positions with Matchup Data</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Daily-Updating RAPM</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-12-16T00:00:00-08:00" itemprop="datePublished">Dec 16, 2018
+      <time class="dt-published" datetime="2018-12-05T00:00:00-08:00" itemprop="datePublished">Dec 5, 2018
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~canzhiye/20.embed"></iframe>
+    <p>The table below shows trailing 250 and 500 day (excluding offseason) regular season RAPM. Updated nightly.</p>
 
-<p>using the matchup data on the nba stats site, I created a graph with nodes being players and edges weighted by how much players guarded each other. I ran <a href="https://en.wikipedia.org/wiki/Louvain_Modularity">louvain community detection algorithm</a> on it and it found 4 communities. this means there’s “naturally” 4 positions!</p>
+<p>(This is still a really early version right now. Would love any suggestions.)</p>
 
-<p>this isn’t a particularly surprising insight at all. it’s cool to see it borne out in the data though!</p>
+<p><a href="https://www.google.com/search?q=rapm+nba+explanation&amp;oq=rapm+nba+explanation">What is RAPM?</a></p>
 
-<p><a href="https://twitter.com/divyahansg/status/1073874951055110144">shoutout</a> to divyahans for the idea.</p>
-
-<hr />
-<iframe width="900" height="800" frameborder="0" scrolling="no" src="//plot.ly/~canzhiye/14.embed"></iframe>
-
-<p>in this second visualization, I took the matchup graph and ran <a href="https://snap.stanford.edu/node2vec/">node2vec</a> on it. this embeds the nodes of the graph in high-dimensional space. presumably, players of the same position will be “close” to each other in this high dimensional space. I then used t-SNE to reduce the dimensionality so that it’s suitable for viewing.</p>
+<p>Why 250 and 500 day samples? Why trailing?
+There is a ton of noise in RAPM for small samples. The single-season RAPM numbers that are floating out there (like ESPN’s single-season RPM) suffer from this. They might do an okay job describing how much players have contributed to winning in the given season, but those numbers are definitely not predictive. In light of that, I chose larger samples – 250 game days is about 1.5 seasons, and 500 game days is about 3 seasons. Using a trailing sample removes the arbitrary lines between seasons.</p>
 
 <hr />
-<p>please tweet / dm me <a href="https://twitter.com/canzhiye">@canzhiye</a> any suggestions or questions!</p>
 
-<p>disclaimer: I know the matchup data itself is not great and it’s not totally clear what constitutes a “matchup” between two players. A little discussion on that <a href="https://twitter.com/Squared2020/status/1074006259307765760">here</a>.</p>
+<iframe class="airtable-embed" src="https://airtable.com/embed/shrtSySuCWRS6qJLR?backgroundColor=blue" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
 
-  </div><a class="u-url" href="/matchups" hidden></a>
+<hr />
+<p>A few technical details:</p>
+
+<ul>
+  <li>I used ridge regression (use cross-validation to find “best” regularization parameter)</li>
+  <li>Possessions column is the sum of offensive and defensive possessions for that player</li>
+  <li>There is some possessions played cutoff that regresses about 1/5th of the players toward a ~replacement level~ player</li>
+  <li>There is no age adjustment, but since the timeframes aren’t super long, it shouldn’t make too big of a difference. I’d actually like any suggestions on how to do the age adjustment. I’ve read <a href="http://apbr.org/metrics/viewtopic.php?f=2&amp;t=8308">this discussion</a>, but not 100% sure I grok it.</li>
+  <li>Play-by-play parsing is fraught with edge cases and there may be some bugs in my code, so I can’t guarantee this is 100% accurate. It’s close though.</li>
+  <li>Please tweet / dm me <a href="https://twitter.com/canzhiye">@canzhiye</a> any suggestions or questions</li>
+</ul>
+
+  </div><a class="u-url" href="/rapm/" hidden></a>
 </article>
 
       </div>

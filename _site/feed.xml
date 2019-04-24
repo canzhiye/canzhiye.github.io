@@ -1,4 +1,48 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-06T18:11:19-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">untitled</title><subtitle>a mix of basketball, tech, and other things that cross my mind</subtitle><entry><title type="html">Exploring NBA Player Positions with Matchup Data</title><link href="http://localhost:4000/matchups" rel="alternate" type="text/html" title="Exploring NBA Player Positions with Matchup Data" /><published>2018-12-16T00:00:00-08:00</published><updated>2018-12-16T00:00:00-08:00</updated><id>http://localhost:4000/matchups</id><content type="html" xml:base="http://localhost:4000/matchups">&lt;iframe width=&quot;900&quot; height=&quot;800&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//plot.ly/~canzhiye/20.embed&quot;&gt;&lt;/iframe&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-24T03:01:21-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">untitled</title><subtitle>a mix of basketball, tech, and other things that cross my mind</subtitle><entry><title type="html">More Granular NBA Player Positions with Matchup Data</title><link href="http://localhost:4000/continuous-positions/" rel="alternate" type="text/html" title="More Granular NBA Player Positions with Matchup Data" /><published>2019-04-24T00:00:00-07:00</published><updated>2019-04-24T00:00:00-07:00</updated><id>http://localhost:4000/positions</id><content type="html" xml:base="http://localhost:4000/continuous-positions/">&lt;p&gt;Players are traditionally assigned discrete position labels (PG, SG, SF, PF, C). In my &lt;a href=&quot;http://canzhiye.com/matchups&quot;&gt;previous post&lt;/a&gt; on positions, I refined these position labels by using matchup data to suggest that maybe there are really only 4 distinct positions. Additionally, the two charts hinted at player similarities based on geometric distance in the visualizations.&lt;/p&gt;
+
+&lt;p&gt;This post takes a different approach in exploring player positions. Instead of assigning discrete labels, I put players’ positions on a continuous spectrum instead. There are some neat things you can do with these more granular player positions! For example, given any 5 players, you can objectively sort them from “small” to “big” trivially. Another example: you can quantify the “size” of each lineup by adding all the player position values. I’m sure there are many other things you can do that I haven’t thought of.&lt;/p&gt;
+
+&lt;p&gt;Methodology to follow.&lt;/p&gt;
+&lt;h3 id=&quot;results&quot;&gt;Results&lt;/h3&gt;
+
+&lt;iframe class=&quot;airtable-embed&quot; src=&quot;https://airtable.com/embed/shraD7HhIiCZaEMsq?backgroundColor=purple&amp;amp;viewControls=on&quot; frameborder=&quot;0&quot; onmousewheel=&quot;&quot; width=&quot;100%&quot; height=&quot;480&quot; style=&quot;background: transparent; border: 1px solid #ccc; margin-bottom: 20px&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;methodology&quot;&gt;Methodology&lt;/h3&gt;
+
+&lt;p&gt;Using 2018-19 matchup data (who guards who and for how many possessions) from &lt;a href=&quot;http://stats.nba.com&quot;&gt;stats.nba.com&lt;/a&gt;, I constructed two &lt;a href=&quot;https://en.wikipedia.org/wiki/Directed_graph&quot;&gt;directed graphs&lt;/a&gt; where nodes are players and edge weights are normalized number of possessions. In the offense graph, there are directed edges from offensive players to defensive players, weighted by the number of possessions of that matchup. The defense graph is the opposite.&lt;/p&gt;
+
+&lt;p&gt;Then I used a &lt;a href=&quot;https://perso.uclouvain.be/vincent.blondel/research/louvain.html&quot;&gt;community detection algorithm&lt;/a&gt; on the graphs to partitions the nodes (players) into communities. The basketball interpretation of a community is a position. More specifically, players in the same community in the offense graph are guarded by similar players, and similarly players in the same communitiy in the defense graph guard similar players. I visually inspected the communities and assigned them integers – the Lead Guard (PG) group as 0, the Wing (SG/SF) group as 1, Big Wing (SF/PF) group as 2, and Big (C) group as 3.&lt;/p&gt;
+
+&lt;p&gt;On the offense and defense graphs, I ran &lt;a href=&quot;https://snap.stanford.edu/node2vec/&quot;&gt;node2vec&lt;/a&gt; to embed each node into an n-dimensional space (I arbitrarily chose n=16). Now each player has an n-dimensional representation and a 1-dimensional label in [0, 1, 2, 3]. Then I used a gradient boosted regressor (could really use any model here) to predict the 1-dimensional label from the n-dimensional representation. The result is a decimal “position” value for each player, where the “smaller” players have lower values, and “bigger” players have higher values.&lt;/p&gt;
+
+&lt;h3 id=&quot;fun-observations&quot;&gt;Fun observations…&lt;/h3&gt;
+&lt;p&gt;First, let’s sanity-check the results with eye-test / our basketball knowledge. Not surprisingly, Dinwiddie, Ntilikina, Derek White, and Beverley are guards with above average values amongst guards. Compared to the likes of Burke, Sexton, Collison, Schroder, Kemba, the former group is more versatile and more likely to guard a player at a bigger position. The bigs with the largest position values are Embiid, Ibaka, Tristan Thompson. The smallest bigs include Markieff Morris, Faried, Amir Johnson, and Jonah Bolden – players who often play alongside another big.&lt;/p&gt;
+
+&lt;p&gt;The community detection algorithm labels canonical 3&amp;amp;D wings Josh Richardson and Robert Covington as guards on offense. Since the graphs only consider matchup data, this seems to make sense because they are often guarded by opposing guards. On defense, Covington is identified as a wing, which everyone would agree is the correct label.&lt;/p&gt;
+
+&lt;p&gt;This led me to wonder, which players have the largest discrepancies between their offense and defense positions? The rightmost column (o - d) answers that question. The most extreme players who guard bigger players than they are guarded by are Theis, Willy Hernangomez, Josh Jackson (?!?!?!), and Felicio. No idea what’s going on with Jackson, but the other three are not really offensive options, so I guess they are matched up with wings on offense, but guard other bigs on defense.&lt;/p&gt;
+
+&lt;p&gt;Finally, a breakdown of the number of players at each position.&lt;/p&gt;
+
+&lt;p&gt;Offense:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;guard: 72&lt;/li&gt;
+  &lt;li&gt;wing: 126&lt;/li&gt;
+  &lt;li&gt;big wing: 67&lt;/li&gt;
+  &lt;li&gt;big: 76&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Defense:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;guard: 79&lt;/li&gt;
+  &lt;li&gt;wing: 114&lt;/li&gt;
+  &lt;li&gt;big wing: 71&lt;/li&gt;
+  &lt;li&gt;big: 77&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Thoughts? Questions? Comments? Ideas? → &lt;a href=&quot;http://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Players are traditionally assigned discrete position labels (PG, SG, SF, PF, C). In my previous post on positions, I refined these position labels by using matchup data to suggest that maybe there are really only 4 distinct positions. Additionally, the two charts hinted at player similarities based on geometric distance in the visualizations.</summary></entry><entry><title type="html">Exploring NBA Player Positions with Matchup Data</title><link href="http://localhost:4000/matchups/" rel="alternate" type="text/html" title="Exploring NBA Player Positions with Matchup Data" /><published>2018-12-16T00:00:00-08:00</published><updated>2018-12-16T00:00:00-08:00</updated><id>http://localhost:4000/matchups</id><content type="html" xml:base="http://localhost:4000/matchups/">&lt;iframe width=&quot;900&quot; height=&quot;800&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//plot.ly/~canzhiye/20.embed&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;using the matchup data on the nba stats site, I created a graph with nodes being players and edges weighted by how much players guarded each other. I ran &lt;a href=&quot;https://en.wikipedia.org/wiki/Louvain_Modularity&quot;&gt;louvain community detection algorithm&lt;/a&gt; on it and it found 4 communities. this means there’s “naturally” 4 positions!&lt;/p&gt;
 
@@ -14,27 +58,30 @@
 &lt;hr /&gt;
 &lt;p&gt;please tweet / dm me &lt;a href=&quot;https://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt; any suggestions or questions!&lt;/p&gt;
 
-&lt;p&gt;disclaimer: I know the matchup data itself is not great and it’s not totally clear what constitutes a “matchup” between two players. A little discussion on that &lt;a href=&quot;https://twitter.com/Squared2020/status/1074006259307765760&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Daily-Updating RAPM</title><link href="http://localhost:4000/rapm" rel="alternate" type="text/html" title="Daily-Updating RAPM" /><published>2018-12-05T00:00:00-08:00</published><updated>2018-12-05T00:00:00-08:00</updated><id>http://localhost:4000/rapm</id><content type="html" xml:base="http://localhost:4000/rapm">&lt;p&gt;trailing 250 and 500 day (excluding offseason) regular season RAPM. updated nightly.&lt;/p&gt;
+&lt;p&gt;disclaimer: I know the matchup data itself is not great and it’s not totally clear what constitutes a “matchup” between two players. A little discussion on that &lt;a href=&quot;https://twitter.com/Squared2020/status/1074006259307765760&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Daily-Updating RAPM</title><link href="http://localhost:4000/rapm/" rel="alternate" type="text/html" title="Daily-Updating RAPM" /><published>2018-12-05T00:00:00-08:00</published><updated>2018-12-05T00:00:00-08:00</updated><id>http://localhost:4000/rapm</id><content type="html" xml:base="http://localhost:4000/rapm/">&lt;p&gt;The table below shows trailing 250 and 500 day (excluding offseason) regular season RAPM. Updated nightly.&lt;/p&gt;
 
-&lt;p&gt;(this is a really early version right now. would love suggestions.)&lt;/p&gt;
+&lt;p&gt;(This is still a really early version right now. Would love any suggestions.)&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.google.com/search?q=rapm+nba+explanation&amp;amp;oq=rapm+nba+explanation&quot;&gt;what is rapm?&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.google.com/search?q=rapm+nba+explanation&amp;amp;oq=rapm+nba+explanation&quot;&gt;What is RAPM?&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;why 250 and 500 day samples?  &lt;br /&gt;
-there is a ton of noise in RAPM for small samples. the single-season RAPM numbers that are floating out there suffer from this. 250 game days is about 1.5 seasons, and 500 game days is about 3 seasons.&lt;/p&gt;
+&lt;p&gt;Why 250 and 500 day samples? Why trailing?
+There is a ton of noise in RAPM for small samples. The single-season RAPM numbers that are floating out there (like ESPN’s single-season RPM) suffer from this. They might do an okay job describing how much players have contributed to winning in the given season, but those numbers are definitely not predictive. In light of that, I chose larger samples – 250 game days is about 1.5 seasons, and 500 game days is about 3 seasons. Using a trailing sample removes the arbitrary lines between seasons.&lt;/p&gt;
 
 &lt;hr /&gt;
 
 &lt;iframe class=&quot;airtable-embed&quot; src=&quot;https://airtable.com/embed/shrtSySuCWRS6qJLR?backgroundColor=blue&quot; frameborder=&quot;0&quot; onmousewheel=&quot;&quot; width=&quot;100%&quot; height=&quot;533&quot; style=&quot;background: transparent; border: 1px solid #ccc;&quot;&gt;&lt;/iframe&gt;
 
 &lt;hr /&gt;
-&lt;p&gt;a few technical details:&lt;/p&gt;
+&lt;p&gt;A few technical details:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;ridge regression (use cross-validation to find “best” regularization parameter)&lt;/li&gt;
-  &lt;li&gt;some possessions played cutoff that regresses about 1/5th of the players toward a ~replacement level~ player&lt;/li&gt;
-  &lt;li&gt;please tweet / dm me &lt;a href=&quot;https://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt; any suggestions or questions&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">trailing 250 and 500 day (excluding offseason) regular season RAPM. updated nightly.</summary></entry><entry><title type="html">Sneak Peek: Pose Estimation on Basketball Broadcast Video</title><link href="http://localhost:4000/2018/07/21/computer-vision-bball.html" rel="alternate" type="text/html" title="Sneak Peek: Pose Estimation on Basketball Broadcast Video" /><published>2018-07-21T00:00:00-07:00</published><updated>2018-07-21T00:00:00-07:00</updated><id>http://localhost:4000/2018/07/21/computer-vision-bball</id><content type="html" xml:base="http://localhost:4000/2018/07/21/computer-vision-bball.html">&lt;p&gt;I’m thinking about how to apply computer vision to basketball in order to quantify things that are not currently or see the game in a different way.&lt;/p&gt;
+  &lt;li&gt;I used ridge regression (use cross-validation to find “best” regularization parameter)&lt;/li&gt;
+  &lt;li&gt;Possessions column is the sum of offensive and defensive possessions for that player&lt;/li&gt;
+  &lt;li&gt;There is some possessions played cutoff that regresses about 1/5th of the players toward a ~replacement level~ player&lt;/li&gt;
+  &lt;li&gt;There is no age adjustment, but since the timeframes aren’t super long, it shouldn’t make too big of a difference. I’d actually like any suggestions on how to do the age adjustment. I’ve read &lt;a href=&quot;http://apbr.org/metrics/viewtopic.php?f=2&amp;amp;t=8308&quot;&gt;this discussion&lt;/a&gt;, but not 100% sure I grok it.&lt;/li&gt;
+  &lt;li&gt;Play-by-play parsing is fraught with edge cases and there may be some bugs in my code, so I can’t guarantee this is 100% accurate. It’s close though.&lt;/li&gt;
+  &lt;li&gt;Please tweet / dm me &lt;a href=&quot;https://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt; any suggestions or questions&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">The table below shows trailing 250 and 500 day (excluding offseason) regular season RAPM. Updated nightly.</summary></entry><entry><title type="html">Sneak Peek: Pose Estimation on Basketball Broadcast Video</title><link href="http://localhost:4000/2018/07/21/computer-vision-bball.html" rel="alternate" type="text/html" title="Sneak Peek: Pose Estimation on Basketball Broadcast Video" /><published>2018-07-21T00:00:00-07:00</published><updated>2018-07-21T00:00:00-07:00</updated><id>http://localhost:4000/2018/07/21/computer-vision-bball</id><content type="html" xml:base="http://localhost:4000/2018/07/21/computer-vision-bball.html">&lt;p&gt;I’m thinking about how to apply computer vision to basketball in order to quantify things that are not currently or see the game in a different way.&lt;/p&gt;
 
 &lt;p&gt;This post merely includes some early thoughts and miniscule prototypes.&lt;/p&gt;
 
