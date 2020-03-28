@@ -1,4 +1,159 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-20T00:04:48-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">untitled</title><subtitle>a mix of basketball, tech, and other things that cross my mind</subtitle><entry><title type="html">Daily: Notes from being online</title><link href="http://localhost:4000/2020/03/19/daily.html" rel="alternate" type="text/html" title="Daily: Notes from being online" /><published>2020-03-19T00:00:00-07:00</published><updated>2020-03-19T00:00:00-07:00</updated><id>http://localhost:4000/2020/03/19/daily</id><content type="html" xml:base="http://localhost:4000/2020/03/19/daily.html">&lt;p&gt;Quick ride this morning. I think I’ll do something longer and more painful tomorrow.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-28T01:56:30-07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">untitled</title><subtitle>a mix of basketball, tech, and other things that cross my mind</subtitle><entry><title type="html">Daily: Real-world data and some ranting</title><link href="http://localhost:4000/2020/03/27/daily.html" rel="alternate" type="text/html" title="Daily: Real-world data and some ranting" /><published>2020-03-27T00:00:00-07:00</published><updated>2020-03-27T00:00:00-07:00</updated><id>http://localhost:4000/2020/03/27/daily</id><content type="html" xml:base="http://localhost:4000/2020/03/27/daily.html">&lt;p&gt;People love to read too much into dumb headlines. So many people shared the “US surpasses Italy in confirmed coronaviruses cases” news today. Guess what? It’s fucking meaningless! We could’ve looked at the growth rate some days ago and known this was going to happen. Additionally, once again, confirmed cases aren’t a great metric (more below). If I’m going to spend brain cycles on coronavirus, I want to think critically, go beneath the surface, and explore data myself… OR make memes. Not share these normie-ass articles.&lt;/p&gt;
+
+&lt;p&gt;The second-order effects of these braindead articles are odd. I’ve even seen it lead to some of my Facebook friends (who are a lost cause by now – they still think this is nothing more than the flu) to proclaim that “WELL ACTUALLY Italy still has more cases per capita.” Wow they must be so smart to know how to divide a number by the population of a country. Many of these people like to talk about how the media is incentivized to spin stories to attract clicks / views, and how because of this we can’t trust the media. In some ways, I share their disdain…&lt;/p&gt;
+
+&lt;p&gt;I started poking around at some of the different sources of covid related out there. covidtracking.com is really doing a lot of the thankless work around cleaning data from many different sources – very much appreciated. I have a public notebook with some code here:
+&lt;a href=&quot;https://colab.research.google.com/drive/1qr6G1dxj9I1OlAdxqlZECFQdqfV9RDps&quot;&gt;https://colab.research.google.com/drive/1qr6G1dxj9I1OlAdxqlZECFQdqfV9RDps&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I’m trying to find the right questions to ask – they should be answerable from available data, help people get a clearer view of what is actually going on, and not already discussed ad naseum. I’m hesitant to do any forecasting because of lack of domain knowledge, and I certainly don’t want to add more noise to an already incredibly exhausting topic.&lt;/p&gt;
+
+&lt;h3 id=&quot;testing-vs-confirmed-cases&quot;&gt;Testing vs Confirmed cases&lt;/h3&gt;
+
+&lt;p&gt;There was a good thread by a buddy on the high correlation between number of tests and confirmed cases.&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;FYI: the growth in positive test results per &lt;a href=&quot;https://twitter.com/COVID19Tracking?ref_src=twsrc%5Etfw&quot;&gt;@COVID19Tracking&lt;/a&gt; data maps almost 1:1 with the growth in tests performed : R^2 of 0.97. In other words, reporting new and daily case counts is really just reporting on the ramp up in testing capability. &lt;a href=&quot;https://twitter.com/DanRosenheck?ref_src=twsrc%5Etfw&quot;&gt;@DanRosenheck&lt;/a&gt; &lt;a href=&quot;https://twitter.com/Noahpinion?ref_src=twsrc%5Etfw&quot;&gt;@Noahpinion&lt;/a&gt; &lt;a href=&quot;https://t.co/T0aZBmVZLm&quot;&gt;pic.twitter.com/T0aZBmVZLm&lt;/a&gt;&lt;/p&gt;&amp;mdash; Kostya Medvedovsky (@kmedved) &lt;a href=&quot;https://twitter.com/kmedved/status/1243612191959453697?ref_src=twsrc%5Etfw&quot;&gt;March 27, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;I learned from one of the replies that finding R^2 between two time series can lead to spurious correlations though. Curious to see the follow up on this. Or I guess I could do the work myself here…&lt;/p&gt;
+
+&lt;h3 id=&quot;random-testing&quot;&gt;Random testing&lt;/h3&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;so reading from the source, it&amp;#39;s a bit nuanced.&lt;br /&gt;&lt;br /&gt;5564 tests on &amp;quot;likely&amp;quot; people (prob similar criteria to US). 685 positive. (12%)&lt;br /&gt;&lt;br /&gt;6163 tests on the general population. 52 positive. (0.8%)&lt;a href=&quot;https://t.co/Koeyjk5loP&quot;&gt;https://t.co/Koeyjk5loP&lt;/a&gt;&lt;/p&gt;&amp;mdash; canzhi is at home right now (@canzhiye) &lt;a href=&quot;https://twitter.com/canzhiye/status/1243642365631287297?ref_src=twsrc%5Etfw&quot;&gt;March 27, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;To my knowledge, Iceland is the only country thus far to do random testing of the general population. They lead the world in tests per 1000 at roughly 30. For comparison, the two highest US states are NY and WA, at 7 and 6 respectively. We have data on Iceland’s randomized tests for 3/20, 3/23, and 3/25 so maybe we can do something with this data. Simple back of the envelope calculation tells us that means there are 2.5M people in the US with the virus if we extrapolate using Iceland’s rate. There’s so many other variables that could render the previous sentence completely inccorect that I almost didn’t want to include it here. Will need to think more about how to best use this data.&lt;/p&gt;
+
+&lt;h3 id=&quot;more-on-data&quot;&gt;More on data&lt;/h3&gt;
+
+&lt;p&gt;Speaking of data, the NYT released their county-level coronavirus data. I felt kind of misled by their article though.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;this is excellent! can you also release this data? &lt;a href=&quot;https://t.co/SKwAJo8XCT&quot;&gt;pic.twitter.com/SKwAJo8XCT&lt;/a&gt;&lt;/p&gt;&amp;mdash; canzhi is at home right now (@canzhiye) &lt;a href=&quot;https://twitter.com/canzhiye/status/1243636434268897281?ref_src=twsrc%5Etfw&quot;&gt;March 27, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Not that county-level data isn’t useful, but seems like getting information about those who actually got the virus would be very useful, or at the very least, interesting to analyze. Perhaps there is county-level demographic and health data that is easily accessible that I could merge with the NYT data… If I remember to go look for it and find it, I’ll add it to the notebook.&lt;/p&gt;
+
+&lt;p&gt;In looking at the testing data from covidtracking.com more closely (with Kostya), I found that the quality was not ideal. There were quite a few days where NY just didn’t report any negative cases… Such is real-world data, I guess. With sports, the data quality is usually much higher. When I’m modeling sports, I feel pretty confident that whatever data is captured is done in a relatively consistent way across games and seasons (still not perfect). It really is a great playground.&lt;/p&gt;
+
+&lt;h3 id=&quot;masks&quot;&gt;Masks&lt;/h3&gt;
+
+&lt;p&gt;I’ve heard conflicting information about the efficacy of masks. The WHO dismisses their usefulness as a protective measure for healthy people, and Michael Osterholm (epidemiologist expert) echoed it on Joe Rogan’s podcast a couple weeks ago. However, I have also seen a &lt;a href=&quot;https://docs.google.com/document/d/1HLrm0pqBN_5bdyysOeoOBX4pt4oFDBhsC_jpblXpNtQ/edit&quot;&gt;document&lt;/a&gt; compiling a list of studies that claim that masks are helpful! There’s just so much &lt;em&gt;stuff&lt;/em&gt; on the internet that you will get exactly what you search for.&lt;/p&gt;
+
+&lt;p&gt;I don’t know what to believe. Now that the level of seriousness has been ratcheted up, I feel much more aware of how easily misinformation or even half-truths can be spread on social media. This doesn’t feel like the malicious fake news campaigns from the 2016 election, but more an overconfidence in something where the truth is not known. If anyone asks me if masks are effective, I’ll fall back to “I don’t know,” but if I have to go to the grocery store, I’ll take the &lt;a href=&quot;https://en.wikipedia.org/wiki/Pascal%27s_wager&quot;&gt;Pascal’s wager&lt;/a&gt; approach.&lt;/p&gt;</content><author><name></name></author><summary type="html">People love to read too much into dumb headlines. So many people shared the “US surpasses Italy in confirmed coronaviruses cases” news today. Guess what? It’s fucking meaningless! We could’ve looked at the growth rate some days ago and known this was going to happen. Additionally, once again, confirmed cases aren’t a great metric (more below). If I’m going to spend brain cycles on coronavirus, I want to think critically, go beneath the surface, and explore data myself… OR make memes. Not share these normie-ass articles.</summary></entry><entry><title type="html">Daily: cleaning data</title><link href="http://localhost:4000/2020/03/25/daily.html" rel="alternate" type="text/html" title="Daily: cleaning data" /><published>2020-03-25T00:00:00-07:00</published><updated>2020-03-25T00:00:00-07:00</updated><id>http://localhost:4000/2020/03/25/daily</id><content type="html" xml:base="http://localhost:4000/2020/03/25/daily.html">&lt;p&gt;I spent a lot of time cleaning data today.&lt;/p&gt;</content><author><name></name></author><summary type="html">I spent a lot of time cleaning data today.</summary></entry><entry><title type="html">Daily: slow</title><link href="http://localhost:4000/2020/03/24/daily.html" rel="alternate" type="text/html" title="Daily: slow" /><published>2020-03-24T00:00:00-07:00</published><updated>2020-03-24T00:00:00-07:00</updated><id>http://localhost:4000/2020/03/24/daily</id><content type="html" xml:base="http://localhost:4000/2020/03/24/daily.html">&lt;p&gt;Ran in the rain today. Did a couple miles a little faster in the middle of the run. Lower calves don’t feel great, so rest of week of running will be much easier / slower.&lt;/p&gt;
+
+&lt;p&gt;Wrote some code for a little project that will hopefully launch this weekend :)&lt;/p&gt;
+
+&lt;h3 id=&quot;twitter&quot;&gt;Twitter&lt;/h3&gt;
+&lt;p&gt;Keith vs Zach lol &lt;a href=&quot;https://twitter.com/zachweinberg/status/1242643587243876353&quot;&gt;some of it here&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;I don’t know anything here, so abstaining from commentary.&lt;/p&gt;
+
+&lt;h3 id=&quot;podcasts&quot;&gt;Podcasts&lt;/h3&gt;
+&lt;p&gt;The Weeds on what to do with industry in times like these. Some comparisons to Ford, factories, etc producing necessary things in WWII. It’s like a car crash - I can’t not pay attention.&lt;/p&gt;
+
+&lt;h3 id=&quot;misc&quot;&gt;Misc&lt;/h3&gt;
+&lt;p&gt;Still looking to take a deeper dive into the covid data. Lack of domain knowledge caveat applies here, but I think I have a few ideas on how I can add something to the discussion without being absolutely destroyed like &lt;a href=&quot;https://twitter.com/aginnt&quot;&gt;@aginnt&lt;/a&gt;. Main thing I want to look at is incorporating testing and demographic data to contextualize the confirmed cases graphs I see everywhere.&lt;/p&gt;
+
+&lt;p&gt;The situation around KAT’s mom is really sad. Very brave of him to get in front of a camera and deliver this message.&lt;/p&gt;
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;WE CAN BEAT THIS, BUT THIS IS SERIOUS AND WE NEED TO TAKE EVERY PRECAUTIONS. &lt;a href=&quot;https://t.co/zxMqVB9AWk&quot;&gt;https://t.co/zxMqVB9AWk&lt;/a&gt; via &lt;a href=&quot;https://twitter.com/YouTube?ref_src=twsrc%5Etfw&quot;&gt;@YouTube&lt;/a&gt;&lt;/p&gt;&amp;mdash; Karl-Anthony Towns (@KarlTowns) &lt;a href=&quot;https://twitter.com/KarlTowns/status/1242688948335456256?ref_src=twsrc%5Etfw&quot;&gt;March 25, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html">Ran in the rain today. Did a couple miles a little faster in the middle of the run. Lower calves don’t feel great, so rest of week of running will be much easier / slower.</summary></entry><entry><title type="html">Daily: untitled</title><link href="http://localhost:4000/2020/03/23/daily.html" rel="alternate" type="text/html" title="Daily: untitled" /><published>2020-03-23T00:00:00-07:00</published><updated>2020-03-23T00:00:00-07:00</updated><id>http://localhost:4000/2020/03/23/daily</id><content type="html" xml:base="http://localhost:4000/2020/03/23/daily.html">&lt;p&gt;Does the wildlife come out when humans retreat?&lt;/p&gt;
+&lt;iframe height=&quot;405&quot; width=&quot;590&quot; frameborder=&quot;0&quot; allowtransparency=&quot;true&quot; scrolling=&quot;no&quot; src=&quot;https://www.strava.com/activities/3210311685/embed/6420d55cd2d54ca5d2b0075687290cb417ef0512&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;twitter&quot;&gt;Twitter&lt;/h3&gt;
+&lt;p&gt;Don’t remember.&lt;/p&gt;
+
+&lt;h3 id=&quot;articles&quot;&gt;Articles&lt;/h3&gt;
+&lt;p&gt;Read some stuff about multi-armed bandits.&lt;/p&gt;
+
+&lt;h3 id=&quot;podcasts&quot;&gt;Podcasts&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://twitter.com/jeffma/status/1242246589395001351&quot;&gt;Bet the Process&lt;/a&gt; episode recorded at Sloan came out today. Interviews with Ted Knutson and Jeff Yass were both insightful. Knutson was pretty negative about the prospects of a thriving regulated &amp;amp; legalized betting market in the US. Or more specifically it’d only be for recreational bettors. Yass talked about how at SIG they teach all the new traders to play poker first to learn about variance and process-oriented decision making. I think that’s really cool! I’m not good at poker, but those aspects of the game appeal to me as well. Playing games with a mix of luck and skill is way more fun than a game like chess, which is a perfect information all skill game. Actually, not only is it way more fun, it is a much more realistic representation of the real world where we never have perfect information.&lt;/p&gt;
+
+&lt;h3 id=&quot;videos&quot;&gt;Videos&lt;/h3&gt;
+&lt;p&gt;More multi-armed bandit stuff. https://www.youtube.com/watch?v=kY-BCNHd_dM&lt;/p&gt;
+
+&lt;h3 id=&quot;misc&quot;&gt;Misc&lt;/h3&gt;
+&lt;p&gt;Spent some time on Indiehackers today. Exploring ideas to hack on!&lt;/p&gt;</content><author><name></name></author><summary type="html">Does the wildlife come out when humans retreat?</summary></entry><entry><title type="html">Daily: Patience</title><link href="http://localhost:4000/2020/03/22/daily.html" rel="alternate" type="text/html" title="Daily: Patience" /><published>2020-03-22T00:00:00-07:00</published><updated>2020-03-22T00:00:00-07:00</updated><id>http://localhost:4000/2020/03/22/daily</id><content type="html" xml:base="http://localhost:4000/2020/03/22/daily.html">&lt;iframe height=&quot;405&quot; width=&quot;590&quot; frameborder=&quot;0&quot; allowtransparency=&quot;true&quot; scrolling=&quot;no&quot; src=&quot;https://www.strava.com/activities/3207742932/embed/bac6df23176d96e86d4b75404d05564969727593&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Got in my first slightly longer run in a while…somehow haven’t run more than like 5 miles since like 2018? I had to keep reminding myself during the run to relax and not push the pace. Cardio-wise I can handle more miles and at a faster pace, but I know that I’ll get injured doing that. Gotta have patience in building up running fitness. Definitely something that I never had before when I did a little bit of triathlon. I planned out my workouts for the week and I hope I’ll be able to follow the plan. For morning workouts, the battle is always fought the night before – sleep early enough and getting up isn’t so horrible.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/cardio_bump1.PNG&quot; alt=&quot;&quot; width=&quot;300px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/cardio_bump2.PNG&quot; alt=&quot;&quot; width=&quot;300px&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Everyone’s getting the coronavirus cardio bump. Thought it was funny so I screen I’ve gotten quite a few, “your friend X has just joined Strava” notifications since I have it linked to my Facebook.&lt;/p&gt;
+
+&lt;p&gt;Made some apple jam today from some apples that were sitting in the fridge for too long. I’ll post a picture somewhere if it taste good. I’ll soon need to buy more mason jars!&lt;/p&gt;
+
+&lt;h3 id=&quot;twitter&quot;&gt;Twitter&lt;/h3&gt;
+&lt;p&gt;People are getting weird out there.&lt;/p&gt;
+
+&lt;p&gt;This isn’t twitter, but I’m seeing a ton of “challenges” in IG stories.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;see 10 (pushups), do 10&lt;/li&gt;
+  &lt;li&gt;draw oranges, eggs, eggplants, etc&lt;/li&gt;
+  &lt;li&gt;tag 10 amazing women&lt;/li&gt;
+  &lt;li&gt;copy a tik tok&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;articles&quot;&gt;Articles&lt;/h3&gt;
+&lt;p&gt;Belated. Started the other day, but finished reading Ben Falk’s interesting &lt;a href=&quot;https://cleaningtheglass.com/following-the-smoke/&quot;&gt;article&lt;/a&gt; on using CDC’s data on influenza to infer where the next (reported) coronavirus outbreaks will be. Put another way, the influenza data is probably a &lt;em&gt;leading&lt;/em&gt; indicator to the confirmed cases that the news will report on. I just complained about everyone incessantly tweeting out the reported cases data without context, but Ben actually looked into it! 100% worth a &lt;a href=&quot;https://cleaningtheglass.com/following-the-smoke/&quot;&gt;read&lt;/a&gt; for a fresher take on this issue.&lt;/p&gt;
+
+&lt;h3 id=&quot;podcasts&quot;&gt;Podcasts&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;Pretty surface level discussion of second-order effects of the pandemic on Freakanomics&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;&quot;&gt;The Weeds on Trump’s swamp&lt;/a&gt;. I don’t even know why I listened to this. Was like half listening tbh. I know people have talked about this before, but sometimes part of the appeal of podcasts is that I feel like I’m in a room with the hosts, and they’re almost like my friends or something. It’s almost a conversation, except they won’t get mad if I’m multitasking (and that I don’t have any input). And after listening to the same podcasts for a while, there’s like a build up of social intimacy. In this time of sheltering in place, that feeling seems even more appealing.&lt;/p&gt;
+
+&lt;h3 id=&quot;videos&quot;&gt;Videos&lt;/h3&gt;
+&lt;p&gt;Nothing of note.&lt;/p&gt;
+
+&lt;h3 id=&quot;misc&quot;&gt;Misc&lt;/h3&gt;
+&lt;p&gt;I got around to looking at the Kaggle competition for covid…and it’s asking people to forecast confirmed cases for the next month. If you’ve read anything else I’ve written about this, you know how I feel about that. What a fucking waste of time for people. Some brainless “data scientist” is definitely trying to XGBoost their way through this…and oh boy, garbage in garbage out.&lt;/p&gt;</content><author><name></name></author><summary type="html">Got in my first slightly longer run in a while…somehow haven’t run more than like 5 miles since like 2018? I had to keep reminding myself during the run to relax and not push the pace. Cardio-wise I can handle more miles and at a faster pace, but I know that I’ll get injured doing that. Gotta have patience in building up running fitness. Definitely something that I never had before when I did a little bit of triathlon. I planned out my workouts for the week and I hope I’ll be able to follow the plan. For morning workouts, the battle is always fought the night before – sleep early enough and getting up isn’t so horrible.</summary></entry><entry><title type="html">Daily: No cars</title><link href="http://localhost:4000/2020/03/21/daily.html" rel="alternate" type="text/html" title="Daily: No cars" /><published>2020-03-21T00:00:00-07:00</published><updated>2020-03-21T00:00:00-07:00</updated><id>http://localhost:4000/2020/03/21/daily</id><content type="html" xml:base="http://localhost:4000/2020/03/21/daily.html">&lt;p&gt;Life would be amazing without so many cars in SF. I think everyone in the city has gotten a glimpse of that in the past week. In an odd way, I really enjoy SF the way it is right now – peaceful and quiet, with people getting outside to exercise.&lt;/p&gt;
+
+&lt;p&gt;GoPros are cool. Rode my bike. Only got in two rides this week, but feeling quite a bit stronger already. I’ll up the mileage next week.&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/CErpYFRTvig&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3 id=&quot;twitter-observations&quot;&gt;Twitter observations&lt;/h3&gt;
+&lt;p&gt;Surprisingly did a good job of staying off this hellhole today again.&lt;/p&gt;
+
+&lt;h3 id=&quot;articles&quot;&gt;Articles&lt;/h3&gt;
+&lt;p&gt;Nothing.&lt;/p&gt;
+
+&lt;h3 id=&quot;podcasts&quot;&gt;Podcasts&lt;/h3&gt;
+&lt;p&gt;Can’t believe I listened to a podcast about fantasy Top Chef basically. Two NBA media people (Arnowitz / Haberstroh) are the hosts: &lt;a href=&quot;https://packyourknives.libsyn.com/&quot;&gt;Pack Your Knives&lt;/a&gt;
+I guess this is where I am without sports :(&lt;/p&gt;
+
+&lt;h3 id=&quot;videos&quot;&gt;Videos&lt;/h3&gt;
+&lt;p&gt;Rewatched Super Size Me on YouTube in the background.
+I haven’t watched Top Chef in a long time, but a friend recommended me to watch the latest season that just premiered. Seems like I might have fun following it since there aren’t going to be sports for a while.&lt;/p&gt;
+
+&lt;h3 id=&quot;misc&quot;&gt;Misc&lt;/h3&gt;
+&lt;p&gt;Relaxing day!&lt;/p&gt;</content><author><name></name></author><summary type="html">Life would be amazing without so many cars in SF. I think everyone in the city has gotten a glimpse of that in the past week. In an odd way, I really enjoy SF the way it is right now – peaceful and quiet, with people getting outside to exercise.</summary></entry><entry><title type="html">Daily: Sheltering at home (with face glued to computer)</title><link href="http://localhost:4000/2020/03/20/daily.html" rel="alternate" type="text/html" title="Daily: Sheltering at home (with face glued to computer)" /><published>2020-03-20T00:00:00-07:00</published><updated>2020-03-20T00:00:00-07:00</updated><id>http://localhost:4000/2020/03/20/daily</id><content type="html" xml:base="http://localhost:4000/2020/03/20/daily.html">&lt;p&gt;As usual, spent most of the day in front of the computer… which is currently a 55” TV. I basically have 4 screens at once and it works decently.&lt;/p&gt;
+
+&lt;p&gt;Stupid me forgot that I washed my bike jerseys yesterday so they were still wet and I couldn’t ride this morning.&lt;/p&gt;
+
+&lt;p&gt;Excited for tomorrow!&lt;/p&gt;
+
+&lt;h3 id=&quot;twitter-observations&quot;&gt;Twitter observations&lt;/h3&gt;
+&lt;p&gt;Surprisingly did a good job of staying off this hellhole today.&lt;/p&gt;
+
+&lt;h3 id=&quot;articles&quot;&gt;Articles&lt;/h3&gt;
+&lt;p&gt;Read a friend’s draft for a blog post. Otherwise, again I’m illiterate.&lt;/p&gt;
+
+&lt;h3 id=&quot;podcasts&quot;&gt;Podcasts&lt;/h3&gt;
+&lt;p&gt;Listened to one of the recent Invest Like the Best episodes. While latently interesting, there’s nothing really actionable from it. Not really into trading stock- I think it’s pretty -EV. Just a completely time and energy sink. And plus, if you really new something, you probably wouldn’t give it away for free.&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;all this coronavirus discourse gave me the sickness of wasting brain cycles on keeping up with whats going on in the stock market&lt;/p&gt;&amp;mdash; canzhi is at home right now (@canzhiye) &lt;a href=&quot;https://twitter.com/canzhiye/status/1236886262247612416?ref_src=twsrc%5Etfw&quot;&gt;March 9, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Nobody who is any good at investing gives actionable trading advice online. I’ve never found an exception.&lt;/p&gt;&amp;mdash; Naval (@naval) &lt;a href=&quot;https://twitter.com/naval/status/1233158509354610688?ref_src=twsrc%5Etfw&quot;&gt;February 27, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;h3 id=&quot;videos&quot;&gt;Videos&lt;/h3&gt;
+&lt;p&gt;Nothing.&lt;/p&gt;
+
+&lt;h3 id=&quot;misc&quot;&gt;Misc&lt;/h3&gt;
+&lt;p&gt;Thinking about doing some covid-19 modeling. I’ll read through the metholodogies of what’s currently out there and see if I have anything to add. If not, I’ll leave it up to Smart People. Just want to once again harp on the point that modeling confirmed cases seems very unwise.&lt;/p&gt;
+
+&lt;p&gt;UPDATE: Saw this before bed, and I swear I came to the above opinion independently!&lt;/p&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;We&amp;#39;re have no way of measuring the number of cases. This is a chart showing the number of **detected** cases. Is a rapid increase in detected cases a good thing or bad thing? That&amp;#39;s not at all clear. &lt;a href=&quot;https://t.co/XYoRV97DDK&quot;&gt;https://t.co/XYoRV97DDK&lt;/a&gt;&lt;/p&gt;&amp;mdash; Nate Silver (@NateSilver538) &lt;a href=&quot;https://twitter.com/NateSilver538/status/1241117375228977153?ref_src=twsrc%5Etfw&quot;&gt;March 20, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html">As usual, spent most of the day in front of the computer… which is currently a 55” TV. I basically have 4 screens at once and it works decently.</summary></entry><entry><title type="html">Daily: Notes from being online</title><link href="http://localhost:4000/2020/03/19/daily.html" rel="alternate" type="text/html" title="Daily: Notes from being online" /><published>2020-03-19T00:00:00-07:00</published><updated>2020-03-19T00:00:00-07:00</updated><id>http://localhost:4000/2020/03/19/daily</id><content type="html" xml:base="http://localhost:4000/2020/03/19/daily.html">&lt;p&gt;Quick ride this morning. I think I’ll do something longer and more painful tomorrow.&lt;/p&gt;
 &lt;iframe height=&quot;405&quot; width=&quot;590&quot; frameborder=&quot;0&quot; allowtransparency=&quot;true&quot; scrolling=&quot;no&quot; src=&quot;https://www.strava.com/activities/3197633164/embed/fc727351eb501cdce35f6c23cc6528430b34eb10&quot;&gt;&lt;/iframe&gt;
 
 &lt;p&gt;Did a ton of errands and not that much coding.&lt;/p&gt;
@@ -105,55 +260,4 @@ Browsed a couple NRL highlights since that’s like the only sport still going o
 
 &lt;hr /&gt;
 
-&lt;p&gt;Thoughts? Questions? Comments? Ideas? → &lt;a href=&quot;http://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Players are traditionally assigned discrete position labels (PG, SG, SF, PF, C). In my previous post on positions, I refined these position labels by using matchup data to suggest that maybe there are really only 4 distinct positions. Additionally, the two charts hinted at player similarities based on geometric distance in the visualizations.</summary></entry><entry><title type="html">Exploring NBA Player Positions with Matchup Data</title><link href="http://localhost:4000/matchups/" rel="alternate" type="text/html" title="Exploring NBA Player Positions with Matchup Data" /><published>2018-12-16T00:00:00-08:00</published><updated>2018-12-16T00:00:00-08:00</updated><id>http://localhost:4000/matchups</id><content type="html" xml:base="http://localhost:4000/matchups/">&lt;iframe width=&quot;900&quot; height=&quot;800&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//plot.ly/~canzhiye/20.embed&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;using the matchup data on the nba stats site, I created a graph with nodes being players and edges weighted by how much players guarded each other. I ran &lt;a href=&quot;https://en.wikipedia.org/wiki/Louvain_Modularity&quot;&gt;louvain community detection algorithm&lt;/a&gt; on it and it found 4 communities. this means there’s “naturally” 4 positions!&lt;/p&gt;
-
-&lt;p&gt;this isn’t a particularly surprising insight at all. it’s cool to see it borne out in the data though!&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://twitter.com/divyahansg/status/1073874951055110144&quot;&gt;shoutout&lt;/a&gt; to divyahans for the idea.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;iframe width=&quot;900&quot; height=&quot;800&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; src=&quot;//plot.ly/~canzhiye/14.embed&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;in this second visualization, I took the matchup graph and ran &lt;a href=&quot;https://snap.stanford.edu/node2vec/&quot;&gt;node2vec&lt;/a&gt; on it. this embeds the nodes of the graph in high-dimensional space. presumably, players of the same position will be “close” to each other in this high dimensional space. I then used t-SNE to reduce the dimensionality so that it’s suitable for viewing.&lt;/p&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;please tweet / dm me &lt;a href=&quot;https://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt; any suggestions or questions!&lt;/p&gt;
-
-&lt;p&gt;disclaimer: I know the matchup data itself is not great and it’s not totally clear what constitutes a “matchup” between two players. A little discussion on that &lt;a href=&quot;https://twitter.com/Squared2020/status/1074006259307765760&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Daily-Updating RAPM</title><link href="http://localhost:4000/rapm/" rel="alternate" type="text/html" title="Daily-Updating RAPM" /><published>2018-12-05T00:00:00-08:00</published><updated>2018-12-05T00:00:00-08:00</updated><id>http://localhost:4000/rapm</id><content type="html" xml:base="http://localhost:4000/rapm/">&lt;p&gt;(UPDATE: I took down the data, but I talked in-depth about RAPM on my podcast here: https://open.spotify.com/show/6TbTmePTW7fCh0brL74g8W)&lt;/p&gt;
-
-&lt;p&gt;The table below shows trailing 250 and 500 day (excluding offseason) regular season RAPM. Updated nightly.&lt;/p&gt;
-
-&lt;p&gt;(This is still a really early version right now. Would love any suggestions.)&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.google.com/search?q=rapm+nba+explanation&amp;amp;oq=rapm+nba+explanation&quot;&gt;What is RAPM?&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Why 250 and 500 day samples? Why trailing?
-There is a ton of noise in RAPM for small samples. The single-season RAPM numbers that are floating out there (like ESPN’s single-season RPM) suffer from this. They might do an okay job describing how much players have contributed to winning in the given season, but those numbers are definitely not predictive. In light of that, I chose larger samples – 250 game days is about 1.5 seasons, and 500 game days is about 3 seasons. Using a trailing sample removes the arbitrary lines between seasons.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;iframe class=&quot;airtable-embed&quot; src=&quot;https://airtable.com/embed/shrtSySuCWRS6qJLR?backgroundColor=blue&quot; frameborder=&quot;0&quot; onmousewheel=&quot;&quot; width=&quot;100%&quot; height=&quot;533&quot; style=&quot;background: transparent; border: 1px solid #ccc;&quot;&gt;&lt;/iframe&gt;
-
-&lt;hr /&gt;
-&lt;p&gt;A few technical details:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;I used ridge regression (use cross-validation to find “best” regularization parameter)&lt;/li&gt;
-  &lt;li&gt;Possessions column is the sum of offensive and defensive possessions for that player&lt;/li&gt;
-  &lt;li&gt;There is some possessions played cutoff that regresses about 1/5th of the players toward a ~replacement level~ player&lt;/li&gt;
-  &lt;li&gt;There is no age adjustment, but since the timeframes aren’t super long, it shouldn’t make too big of a difference. I’d actually like any suggestions on how to do the age adjustment. I’ve read &lt;a href=&quot;http://apbr.org/metrics/viewtopic.php?f=2&amp;amp;t=8308&quot;&gt;this discussion&lt;/a&gt;, but not 100% sure I grok it.&lt;/li&gt;
-  &lt;li&gt;Play-by-play parsing is fraught with edge cases and there may be some bugs in my code, so I can’t guarantee this is 100% accurate. It’s close though.&lt;/li&gt;
-  &lt;li&gt;Please tweet / dm me &lt;a href=&quot;https://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt; any suggestions or questions&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">(UPDATE: I took down the data, but I talked in-depth about RAPM on my podcast here: https://open.spotify.com/show/6TbTmePTW7fCh0brL74g8W)</summary></entry><entry><title type="html">Sneak Peek: Pose Estimation on Basketball Broadcast Video</title><link href="http://localhost:4000/2018/07/21/computer-vision-bball.html" rel="alternate" type="text/html" title="Sneak Peek: Pose Estimation on Basketball Broadcast Video" /><published>2018-07-21T00:00:00-07:00</published><updated>2018-07-21T00:00:00-07:00</updated><id>http://localhost:4000/2018/07/21/computer-vision-bball</id><content type="html" xml:base="http://localhost:4000/2018/07/21/computer-vision-bball.html">&lt;p&gt;I’m thinking about how to apply computer vision to basketball in order to quantify things that are not currently or see the game in a different way.&lt;/p&gt;
-
-&lt;p&gt;This post merely includes some early thoughts and miniscule prototypes.&lt;/p&gt;
-
-&lt;p&gt;I used Facebook Research’s DensePose. It was kind of a pain to install, so I wrote a little &lt;a href=&quot;https://gist.github.com/canzhiye/af55bde2a0437c5e46997bb969024676&quot;&gt;gist&lt;/a&gt; for it if you’re interested in tinkering yourself. It might not ultimately be the right tool though.&lt;/p&gt;
-
-&lt;p&gt;I didn’t pre-process the videos at all. The court and crowd definitely needs to be segmented out. &lt;a href=&quot;https://twitter.com/canzhiye/status/1012390885298864130&quot;&gt;Here’s&lt;/a&gt; what it looks like without that.&lt;/p&gt;
-
-&lt;p&gt;This isn’t NBA specific. Here I pulled a Euroleague clip. Also, I thought it might be interesting to turn the players into just a single-colored silhouette. Can that remove some bias in scouting? Can you guess who’s shooting in &lt;a href=&quot;https://twitter.com/canzhiye/status/1020688241643671556&quot;&gt;this clip&lt;/a&gt;?&lt;/p&gt;
-
-&lt;p&gt;This is very much a work in progress. Would love to hear any ideas or feedback!&lt;/p&gt;</content><author><name></name></author><summary type="html">I’m thinking about how to apply computer vision to basketball in order to quantify things that are not currently or see the game in a different way.</summary></entry></feed>
+&lt;p&gt;Thoughts? Questions? Comments? Ideas? → &lt;a href=&quot;http://twitter.com/canzhiye&quot;&gt;@canzhiye&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">Players are traditionally assigned discrete position labels (PG, SG, SF, PF, C). In my previous post on positions, I refined these position labels by using matchup data to suggest that maybe there are really only 4 distinct positions. Additionally, the two charts hinted at player similarities based on geometric distance in the visualizations.</summary></entry></feed>

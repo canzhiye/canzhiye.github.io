@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Daily: Real-world data and some ranting | untitled</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Daily: Real-world data and some ranting" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="People love to read too much into dumb headlines. So many people shared the “US surpasses Italy in confirmed coronaviruses cases” news today. Guess what? It’s fucking meaningless! We could’ve looked at the growth rate some days ago and known this was going to happen. Additionally, once again, confirmed cases aren’t a great metric (more below). If I’m going to spend brain cycles on coronavirus, I want to think critically, go beneath the surface, and explore data myself… OR make memes. Not share these normie-ass articles." />
+<meta property="og:description" content="People love to read too much into dumb headlines. So many people shared the “US surpasses Italy in confirmed coronaviruses cases” news today. Guess what? It’s fucking meaningless! We could’ve looked at the growth rate some days ago and known this was going to happen. Additionally, once again, confirmed cases aren’t a great metric (more below). If I’m going to spend brain cycles on coronavirus, I want to think critically, go beneath the surface, and explore data myself… OR make memes. Not share these normie-ass articles." />
+<link rel="canonical" href="http://localhost:4000/2020/03/27/daily.html" />
+<meta property="og:url" content="http://localhost:4000/2020/03/27/daily.html" />
+<meta property="og:site_name" content="untitled" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-03-27T00:00:00-07:00" />
+<script type="application/ld+json">
+{"description":"People love to read too much into dumb headlines. So many people shared the “US surpasses Italy in confirmed coronaviruses cases” news today. Guess what? It’s fucking meaningless! We could’ve looked at the growth rate some days ago and known this was going to happen. Additionally, once again, confirmed cases aren’t a great metric (more below). If I’m going to spend brain cycles on coronavirus, I want to think critically, go beneath the surface, and explore data myself… OR make memes. Not share these normie-ass articles.","@type":"BlogPosting","url":"http://localhost:4000/2020/03/27/daily.html","headline":"Daily: Real-world data and some ranting","dateModified":"2020-03-27T00:00:00-07:00","datePublished":"2020-03-27T00:00:00-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/03/27/daily.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="untitled" /></head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">untitled</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header><main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Daily: Real-world data and some ranting</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2020-03-27T00:00:00-07:00" itemprop="datePublished">Mar 27, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>People love to read too much into dumb headlines. So many people shared the “US surpasses Italy in confirmed coronaviruses cases” news today. Guess what? It’s fucking meaningless! We could’ve looked at the growth rate some days ago and known this was going to happen. Additionally, once again, confirmed cases aren’t a great metric (more below). If I’m going to spend brain cycles on coronavirus, I want to think critically, go beneath the surface, and explore data myself… OR make memes. Not share these normie-ass articles.</p>
+
+<p>The second-order effects of these braindead articles are odd. I’ve even seen it lead to some of my Facebook friends (who are a lost cause by now – they still think this is nothing more than the flu) to proclaim that “WELL ACTUALLY Italy still has more cases per capita.” Wow they must be so smart to know how to divide a number by the population of a country. Many of these people like to talk about how the media is incentivized to spin stories to attract clicks / views, and how because of this we can’t trust the media. In some ways, I share their disdain…</p>
+
+<p>I started poking around at some of the different sources of covid related out there. covidtracking.com is really doing a lot of the thankless work around cleaning data from many different sources – very much appreciated. I have a public notebook with some code here:
+<a href="https://colab.research.google.com/drive/1qr6G1dxj9I1OlAdxqlZECFQdqfV9RDps">https://colab.research.google.com/drive/1qr6G1dxj9I1OlAdxqlZECFQdqfV9RDps</a></p>
+
+<p>I’m trying to find the right questions to ask – they should be answerable from available data, help people get a clearer view of what is actually going on, and not already discussed ad naseum. I’m hesitant to do any forecasting because of lack of domain knowledge, and I certainly don’t want to add more noise to an already incredibly exhausting topic.</p>
+
+<h3 id="testing-vs-confirmed-cases">Testing vs Confirmed cases</h3>
+
+<p>There was a good thread by a buddy on the high correlation between number of tests and confirmed cases.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">FYI: the growth in positive test results per <a href="https://twitter.com/COVID19Tracking?ref_src=twsrc%5Etfw">@COVID19Tracking</a> data maps almost 1:1 with the growth in tests performed : R^2 of 0.97. In other words, reporting new and daily case counts is really just reporting on the ramp up in testing capability. <a href="https://twitter.com/DanRosenheck?ref_src=twsrc%5Etfw">@DanRosenheck</a> <a href="https://twitter.com/Noahpinion?ref_src=twsrc%5Etfw">@Noahpinion</a> <a href="https://t.co/T0aZBmVZLm">pic.twitter.com/T0aZBmVZLm</a></p>&mdash; Kostya Medvedovsky (@kmedved) <a href="https://twitter.com/kmedved/status/1243612191959453697?ref_src=twsrc%5Etfw">March 27, 2020</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>I learned from one of the replies that finding R^2 between two time series can lead to spurious correlations though. Curious to see the follow up on this. Or I guess I could do the work myself here…</p>
+
+<h3 id="random-testing">Random testing</h3>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">so reading from the source, it&#39;s a bit nuanced.<br /><br />5564 tests on &quot;likely&quot; people (prob similar criteria to US). 685 positive. (12%)<br /><br />6163 tests on the general population. 52 positive. (0.8%)<a href="https://t.co/Koeyjk5loP">https://t.co/Koeyjk5loP</a></p>&mdash; canzhi is at home right now (@canzhiye) <a href="https://twitter.com/canzhiye/status/1243642365631287297?ref_src=twsrc%5Etfw">March 27, 2020</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>To my knowledge, Iceland is the only country thus far to do random testing of the general population. They lead the world in tests per 1000 at roughly 30. For comparison, the two highest US states are NY and WA, at 7 and 6 respectively. We have data on Iceland’s randomized tests for 3/20, 3/23, and 3/25 so maybe we can do something with this data. Simple back of the envelope calculation tells us that means there are 2.5M people in the US with the virus if we extrapolate using Iceland’s rate. There’s so many other variables that could render the previous sentence completely inccorect that I almost didn’t want to include it here. Will need to think more about how to best use this data.</p>
+
+<h3 id="more-on-data">More on data</h3>
+
+<p>Speaking of data, the NYT released their county-level coronavirus data. I felt kind of misled by their article though.</p>
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">this is excellent! can you also release this data? <a href="https://t.co/SKwAJo8XCT">pic.twitter.com/SKwAJo8XCT</a></p>&mdash; canzhi is at home right now (@canzhiye) <a href="https://twitter.com/canzhiye/status/1243636434268897281?ref_src=twsrc%5Etfw">March 27, 2020</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>Not that county-level data isn’t useful, but seems like getting information about those who actually got the virus would be very useful, or at the very least, interesting to analyze. Perhaps there is county-level demographic and health data that is easily accessible that I could merge with the NYT data… If I remember to go look for it and find it, I’ll add it to the notebook.</p>
+
+<p>In looking at the testing data from covidtracking.com more closely (with Kostya), I found that the quality was not ideal. There were quite a few days where NY just didn’t report any negative cases… Such is real-world data, I guess. With sports, the data quality is usually much higher. When I’m modeling sports, I feel pretty confident that whatever data is captured is done in a relatively consistent way across games and seasons (still not perfect). It really is a great playground.</p>
+
+<h3 id="masks">Masks</h3>
+
+<p>I’ve heard conflicting information about the efficacy of masks. The WHO dismisses their usefulness as a protective measure for healthy people, and Michael Osterholm (epidemiologist expert) echoed it on Joe Rogan’s podcast a couple weeks ago. However, I have also seen a <a href="https://docs.google.com/document/d/1HLrm0pqBN_5bdyysOeoOBX4pt4oFDBhsC_jpblXpNtQ/edit">document</a> compiling a list of studies that claim that masks are helpful! There’s just so much <em>stuff</em> on the internet that you will get exactly what you search for.</p>
+
+<p>I don’t know what to believe. Now that the level of seriousness has been ratcheted up, I feel much more aware of how easily misinformation or even half-truths can be spread on social media. This doesn’t feel like the malicious fake news campaigns from the 2016 election, but more an overconfidence in something where the truth is not known. If anyone asks me if masks are effective, I’ll fall back to “I don’t know,” but if I have to go to the grocery store, I’ll take the <a href="https://en.wikipedia.org/wiki/Pascal%27s_wager">Pascal’s wager</a> approach.</p>
+
+  </div><a class="u-url" href="/2020/03/27/daily.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.facebook.com/canzhiye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#facebook"></use></svg> <span class="username">canzhiye</span></a></li><li><a href="https://github.com/canzhiye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">canzhiye</span></a></li><li><a href="https://www.linkedin.com/in/canzhiye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">canzhiye</span></a></li><li><a href="https://www.twitter.com/canzhiye"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">canzhiye</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>a mix of basketball, tech, and other things that cross my mind</p>
+      </div>
+    </div>
+
+  </div>
+<!-- Default Statcounter code for Canzhiye.com
+http://canzhiye.com -->
+<script type="text/javascript">
+var sc_project=9920587; 
+var sc_invisible=1; 
+var sc_security="f1f604fe"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js"
+async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="http://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="//c.statcounter.com/9920587/0/f1f604fe/1/" alt="Web
+Analytics"></a></div></noscript>
+<!-- End of Statcounter Code -->
+</footer></body>
+
+</html>
